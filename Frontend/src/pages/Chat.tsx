@@ -30,6 +30,7 @@ const Chat: React.FC = () => {
   } ,[socket]);
 
   const sendMessage = () =>{
+  
     if (msg.trim ()) {
       socket.emit('send_message' , msg) ;
 
@@ -46,8 +47,9 @@ const Chat: React.FC = () => {
   return (
     <div className="h-[100vh]">
       <div className="h-[100%] flex justify-center items-center">
-        <div className="w-[80%] xl:w-[25%] h-[60%] gap-[2rem] bg-white-600 border rounded  bg-gray-300 flex flex-col justify-end  p-4 overflow-y-auto">
+        <div className="w-[90%] xl:w-[25%] h-[60%]  bg-white-600 border rounded  bg-gray-300 flex flex-col justify-end  p-2 ">
 
+          <div className="overflow-y-auto flex flex-col gap-[1rem] ">
           {messageList.map ((message,index) => (
             <div className={`flex  ${message.isSent ? ("justify-end") : ("justify-start")}`}>
               <div key={index} className={ ` py-2 px-3 rounded ${message.isSent ? ("bg-blue-500 text-white") : ("bg-green-500 text-white")}`} >
@@ -55,9 +57,13 @@ const Chat: React.FC = () => {
               </div>
             </div>
           ))}
+          </div>
           
-          <div className="flex  gap-[1rem]">
-          <input type="text" className="border border-[#ffb703] w-full py-2 px-2 rounded" value={msg} onChange={e => setMsg(e.target.value)}/>
+          <div className="flex  gap-[0.5rem]">
+          <input type="text" className="border border-[#ffb703] w-full py-2 px-2 rounded" value={msg} onChange={e => setMsg(e.target.value)} 
+          onKeyDown={(e) => { if (e.key === "Enter") { sendMessage()}}}
+          
+          />
           <button className="bg-[#ffb703] text-white rounded px-4  py-2" onClick={sendMessage}>Send</button>
           </div>
 
