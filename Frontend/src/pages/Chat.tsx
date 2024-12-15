@@ -12,7 +12,9 @@ const Chat: React.FC = () => {
   const [msg , setMsg] = useState<string>('');
   const [msgList,setMsgList]=useState<Message[]>([]);
 
-  const socket = io('http://localhost:8081');
+  // const socket = io('http://localhost:8081');
+  const socket = io('https://chat-app-backend-9u5w.onrender.com');
+
 
   useEffect(() => {
     socket.on('receive_message', (data: string) => {

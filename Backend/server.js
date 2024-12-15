@@ -9,8 +9,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Adjust origin if needed
-    // origin :"https://chat-app-type.netlify.app",
+    // origin: "http://localhost:3000", // Adjust origin if needed
+    origin :"https://chat-app-typescript.netlify.app",
     methods: ["GET", "POST"],
   },
 });
