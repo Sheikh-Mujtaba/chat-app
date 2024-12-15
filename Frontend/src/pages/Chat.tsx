@@ -54,7 +54,7 @@ const Chat: React.FC = () => {
 
           <div className="overflow-y-auto" >
             {msgList.map ((message ,index) => (
-              <div className={`flex py-3 ${message.isSent ? ("justify-left") : ("justify-right")}`}>
+              <div className={`flex py-3 ${message.isSent ? ("") : ("justify-end")}`}>
                 <div key={index}>
                   <div className={`px-3 py-2 rounded ${message.isSent ? ("bg-blue-500 text-white") : ("bg-green-500 text-white")}`}>{message.content}</div>
 
