@@ -9,8 +9,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    // origin: "http://localhost:3000", // Adjust origin if needed
-    origin :"https://chat-app-type.netlify.app",
+    origin: "http://localhost:3000", // Adjust origin if needed
+    // origin :"https://chat-app-type.netlify.app",
     methods: ["GET", "POST"],
   },
 });
@@ -25,11 +25,6 @@ io.on("connection", (socket) => {
     // Emit message to all connected clients
     io.emit("receive_message", data);// Use the correct event name
   });
-
-
-  
-
-  
 
   // Handle client disconnection
   socket.on("disconnect", () => {
