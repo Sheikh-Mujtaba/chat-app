@@ -67,7 +67,7 @@ const Chat: React.FC = () => {
          
           
           <div className="flex  gap-[1rem]">
-          <input type="text" className="border border-[#ffb703] w-full py-2 px-2 rounded"  onChange={e => setMsg (e.target.value)}/>
+          <input type="text" className="border border-[#ffb703] w-full py-2 px-2 rounded" value={msg}  onChange={e => setMsg (e.target.value)}/>
 
           <button className="bg-[#ffb703] text-white rounded px-4  py-2" onClick={sendMsg} >Send</button>
 
